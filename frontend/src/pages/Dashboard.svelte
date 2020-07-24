@@ -67,6 +67,14 @@
     return `/img/classes/${c}.png`;
   }
 
+  function prettyGold(coins) {
+    let g = coins / 100 / 100;
+    if (g < 1) {
+      return 0;
+    }
+    return Math.round(numeral(g).format('0a'));
+  }
+
   function prettyFaction(faction) {
     if (faction == 'horde') {
       return `<span class="text-red-600">[H]</b>`;
@@ -138,7 +146,7 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    {numeral(Math.round(character.coins / 100 / 100)).format('0a')}
+                    {prettyGold(character.coins)}
                     <span class="text-yellow-300 text-xs">g</span>
                     {Math.round((character.coins / 100) % 100)}
                     <span class="text-gray-400 text-xs">s</span>
