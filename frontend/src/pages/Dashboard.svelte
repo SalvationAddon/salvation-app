@@ -72,7 +72,7 @@
     if (g < 1) {
       return 0;
     }
-    return Math.round(numeral(g).format('0a'));
+    return numeral(g).format('0a');
   }
 
   function prettyFaction(faction) {
